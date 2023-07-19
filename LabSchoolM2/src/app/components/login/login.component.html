@@ -1,0 +1,17 @@
+<form style="min-width: 350px;" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Insira seu email" formControlName="email">
+        <span class="msg-erro-form text-danger" *ngIf="validateErrorMessage('email')">Por favor insira um email valido</span>
+    </div>
+    <div class="form-group mt-2">
+        <label for="password">Senha</label>
+        <input type="password" class="form-control" id="password" placeholder="Insira sua senha"
+            formControlName="password">
+        <span class="msg-erro-form text-danger" *ngIf="validateErrorMessage('password')">Por favor insira uma senha valida</span>
+    </div>
+    <div class="btn-toolbar d-flex gap-3 mt-3">
+        <button type="submit" class="btn btn-primary btn-sm" [disabled]="loginForm.invalid">Entrar</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="cadastrar()">Cadastrar</button>
+    </div>
+</form>
