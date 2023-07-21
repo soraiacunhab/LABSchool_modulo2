@@ -1,0 +1,45 @@
+<p>cadastro works!</p>
+<form style="min-width: 350px;" [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="nome">Nome Completo</label>
+        <input type="text" class="form-control" id="nome" placeholder="Insira seu nome completo" formControlName="nome">
+        <span class="msg-erro-form text-danger" *ngIf="validateErrorMessage('nome')">Por favor insira seu nome</span>
+    </div>
+    <div class="form-group mt-2">
+        <label for="telefone">Telefone</label>
+        <input type="text" class="form-control" id="telefone" placeholder="Insira seu telefone"
+            formControlName="telefone" mask="(00) 00000-0000">
+        <span class="msg-erro-form text-danger" *ngIf="validateErrorMessage('telefone')">Por favor insira número de telefone válido</span>
+    </div>
+    <div class="form-group mt-2">
+        <label for="dataNascimento">Data de nascimento</label>
+        <input type="date" class="form-control" id="dataNascimento" formControlName="dataNascimento">
+        <span class="msg-erro-form text-danger" *ngIf="validateErrorMessage('dataNascimento')">Por favor insira sua data de nascimento</span>
+    </div>
+    <div class="form-group mt-2">
+        <label for="cpf">CPF</label>
+        <input type="text" class="form-control" id="cpf" placeholder="Insira seu CPF" formControlName="cpf"
+            mask="000.000.000-00">
+        <span class="msg-erro-form text-danger" *ngIf="validateErrorMessage('cpf')">Por favor insira seu CPF</span>
+    </div>
+    <div class="form-group mt-2">
+        <label for="email">E-mail</label>
+        <input type="email" class="form-control" id="email" placeholder="Insira seu e-mail" formControlName="email">
+        <span class="msg-erro-form text-danger" *ngIf="validateErrorMessage('email')">Por favor insira um e-mail válido</span>
+    </div>
+    <div class="form-group mt-2">
+        <label for="senha">Senha</label>
+        <input type="password" class="form-control" id="senha" placeholder="Insira sua senha" formControlName="senha">
+        <span class="msg-erro-form text-danger" *ngIf="validateErrorMessage('senha')">Por favor insira uma senha válida</span>
+    </div>
+    <div class="form-group mt-2">
+        <label for="confirmacaoSenha">Confirmação de senha</label>
+        <input type="password" class="form-control" id="confirmacaoSenha" placeholder="Confirme sua senha"
+            formControlName="confirmacaoSenha">
+        <span class="msg-erro-form text-danger" *ngIf="validateErrorMessage('confirmacaoSenha')">Por favor insira uma senha válida</span>
+        <span class="msg-erro-form text-danger" *ngIf="validarMensagemErroConfirmacaoSenha()">Sua confirmação de senha e sua senha devem ser iguais</span>
+    </div>
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary btn-sm" [disabled]="cadastroForm.invalid">Cadastrar</button>
+    </div>
+</form>
